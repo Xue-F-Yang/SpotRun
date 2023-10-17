@@ -2,20 +2,22 @@
 <html>
 <head>
 	<title>SpotRun</title>
-	<style>
-		/* Add your CSS styles here */
-	</style>
+	<link rel="stylesheet" href="./assets/styles.css" />
 </head>
 <body>
-	<h1>SpotRun</h1>
-	<form>
-		<label for="distance">Distance (in miles):</label>
-		<input type="number" id="distance" name="distance" min="0" step="0.1"><br><br>
-		<label for="pace">Pace (in minutes per mile):</label>
-		<input type="number" id="pace" name="pace" min="0" step="0.1"><br><br>
-		<button type="button" onclick="generatePlaylist()">Generate Playlist</button>
-	</form>
-	<div id="playlist"></div>
+	<header>
+		<h1>SpotRun</h1>
+	</header>
+	<main>
+		<form>
+			<label for="distance">Distance (in miles):</label>
+			<input type="number" id="distance" name="distance" min="0" step="0.1"><br><br>
+			<label for="pace">Pace (in minutes per mile):</label>
+			<input type="number" id="pace" name="pace" min="0" step="0.1"><br><br>
+			<button type="button" onclick="generatePlaylist()">Generate Playlist</button>
+		</form>
+		<div id="playlist"></div>
+	</main>
 	<script>
 		function generatePlaylist() {
 			// Get the distance and pace values
