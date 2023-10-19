@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SpotRun</title>
-	<link rel="stylesheet" href="./assets/styles.css" />
+	<title>Music Selection</title>
+	<link rel="stylesheet" href="./assets/genre.css" />
 </head>
 <body>
 	<header>
@@ -10,27 +10,26 @@
 	</header>
 	<main>
 		<form>
-			<label for="distance">Distance (in miles):</label>
-			<input type="number" id="distance" name="distance" min="0" step="0.1"><br><br>
-			<div id="timer">
-				<label for="minutes">Minutes:</label>
-				<input type="number" id="minutes" name="minutes" min="0" step="1">
-				<label for="seconds">Seconds:</label>
-				<input type="number" id="seconds" name="seconds" min="0" max="59" step="1">
-				<button type="button" onclick="startTimer()">Start</button>
-				<button type="button" onclick="stopTimer()">Pause</button>
-                <button type="button" onclick="resetTimer()">Reset</button>
-				<div id="countdown"></div>
-			</div>
-			<div id="playlist"></div>
-			<a href="genre-selection.html">Select Music Genres</a>
+			<label for="genre">Music Genre:</label>
+			<select id="genre" name="genre" multiple>
+				<option value="pop">Pop</option>
+				<option value="rock">Rock</option>
+				<option value="hip-hop">Hip Hop</option>
+				<option value="country">Country</option>
+			</select>
+			<button type="button" onclick="saveSelection()">Submit</button>
 		</form>
 	</main>
     <footer>
         <h1>Developed By</h1>
         <h2>Alan Lee and Xue Yang</h2>
     </footer>
-	<script src="./lib/anime.min.js"></script>
-    <script src="./assets/script.js"></script>
+	<script>
+		function saveSelection() {
+			const selectedGenres = Array.from(document.getElementById("genre").selectedOptions, option => option.value);
+			localStorage.setItem("selectedGenres", JSON.stringify(selectedGenres));
+			window.location.href = "index.html";
+		}
+	</script>
 </body>
 </html>
