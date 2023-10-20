@@ -26,28 +26,15 @@
 				<option value="hip-hop">Hip Hop</option>
 				<option value="country">Country</option>
 			</select>
-			<button type="button" onclick="saveSelection()">Submit</button>
+			<button type="button" onclick="authenticate().then((loadClient()))">Login</button>
+			<button type="button" onclick="execute()">Submit</button>
 		</form>
 	</main>
     <footer>
         <h1>Developed By</h1>
         <h2>Alan Lee and Xue Yang</h2>
     </footer>
-	<script>
-		function startTimer() {
-            const minutes = document.getElementById("minutes").value;
-            const seconds = document.getElementById("seconds").value;
-            const timerValue = { minutes, seconds };
-            localStorage.setItem("timerValue", JSON.stringify(timerValue));
-            window.location.href = "index02.html";
-        } 
- 
-		function saveSelection() {
-			startTimer();
-			const selectedGenres = Array.from(document.getElementById("genre").selectedOptions, option => option.value);
-			localStorage.setItem("selectedGenres", JSON.stringify(selectedGenres));
-			window.location.href = "index02.html";
-		}
-	</script>
+	<script src="https://apis.google.com/js/api.js"></script>
+	<script src = "./assets/bpmgetter.js"></script> 
 </body>
 </html>

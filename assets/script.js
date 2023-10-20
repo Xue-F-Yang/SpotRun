@@ -1,4 +1,4 @@
-const playlist = [
+/*const playlist = [
     {
       title: "Song 1",
       artist: "Artist 1",
@@ -23,13 +23,16 @@ const playlist = [
       genre: "country",
       url: "song4.mp3"
     }
-  ];
+  ];*/
 
   const selectedGenres = JSON.parse(localStorage.getItem("selectedGenres")) || [];
 
   if (selectedGenres.length > 0) {
-      const filteredPlaylist = playlist.filter(song => selectedGenres.includes(song.genre));
-      displayPlaylist(filteredPlaylist);
+    
+    const songs = [localStorage.getItem("video")];
+    displayPlaylist(songs);
+    //const filteredPlaylist = playlist.filter(song => selectedGenres.includes(song.genre));
+    //displayPlaylist(filteredPlaylist);
   }
 
   function displayPlaylist(playlist) {
@@ -40,11 +43,14 @@ const playlist = [
       songDiv.innerHTML = `
         <h3>${song.title}</h3>
         <p>${song.artist}</p>
-        <audio controls>
-          <source src="${song.url}" type="audio/mpeg">
+        <audio class = "controls">
+          <source src="${song}" type="audio/mpeg">
         </audio>
       `;
       playlistDiv.appendChild(songDiv);
+      var play_song = new Audio(song);
+      play_song.play();
+
     });
   }
 
