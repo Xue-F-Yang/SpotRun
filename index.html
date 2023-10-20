@@ -10,6 +10,15 @@
 	</header>
 	<main>
 		<form>
+			<label for="distance">Distance (in miles):</label>
+			<input type="number" id="distance" name="distance" min="0" step="0.1"><br><br>
+			<div id="timer">
+				<label for="minutes">Minutes:</label>
+				<input type="number" id="minutes" name="minutes" min="0" step="1">
+				<label for="seconds">Seconds:</label>
+				<input type="number" id="seconds" name="seconds" min="0" max="59" step="1">
+				<div id="countdown"></div>
+			</div>
 			<label for="genre">Music Genre:</label>
 			<select id="genre" name="genre" multiple>
 				<option value="pop">Pop</option>
@@ -25,7 +34,16 @@
         <h2>Alan Lee and Xue Yang</h2>
     </footer>
 	<script>
+		function startTimer() {
+            const minutes = document.getElementById("minutes").value;
+            const seconds = document.getElementById("seconds").value;
+            const timerValue = { minutes, seconds };
+            localStorage.setItem("timerValue", JSON.stringify(timerValue));
+            window.location.href = "index02.html";
+        } 
+ 
 		function saveSelection() {
+			startTimer();
 			const selectedGenres = Array.from(document.getElementById("genre").selectedOptions, option => option.value);
 			localStorage.setItem("selectedGenres", JSON.stringify(selectedGenres));
 			window.location.href = "index02.html";
