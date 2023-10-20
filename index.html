@@ -15,8 +15,6 @@
 			<div id="timer">
 				<label for="minutes">Minutes:</label>
 				<input type="number" id="minutes" name="minutes" min="0" step="1">
-				<label for="seconds">Seconds:</label>
-				<input type="number" id="seconds" name="seconds" min="0" max="59" step="1">
 				<div id="countdown"></div>
 			</div>
 			<label for="genre">Music Genre:</label>
@@ -36,8 +34,7 @@
 	<script>
 		function startTimer() {
             const minutes = document.getElementById("minutes").value;
-            const seconds = document.getElementById("seconds").value;
-            const timerValue = { minutes, seconds };
+            const timerValue = { minutes, seconds: 0 };
             localStorage.setItem("timerValue", JSON.stringify(timerValue));
             window.location.href = "index02.html";
         } 
