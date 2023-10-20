@@ -38,6 +38,7 @@
   function displayPlaylist(playlist) {
     const playlistDiv = document.getElementById("playlist");
     playlistDiv.innerHTML = "";
+
     playlist.forEach(song => {
       const songDiv = document.createElement("div");
       songDiv.innerHTML = `
@@ -48,10 +49,18 @@
         </audio>
       `;
       playlistDiv.appendChild(songDiv);
-      var play_song = new Audio(song);
-      play_song.play();
-
     });
+    /*var play_song =$("<iframe>");
+    play_song.attr({
+      width:"560",
+      height:"315",
+      src:"https://www.youtube.com/embed/AEYN5w4T_aM",
+      title:"YouTube video player",
+      frameborder:"0",
+      allow:"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+    }) //allowfullscreen */
+   //playlist.appendChild(play_song);
+
   }
 
 // Timer disolay
