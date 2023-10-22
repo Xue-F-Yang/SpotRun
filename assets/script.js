@@ -1,69 +1,43 @@
-/*const playlist = [
-    {
-      title: "Song 1",
-      artist: "Artist 1",
-      genre: "pop",
-      url: "song1.mp3"
+const selectedGenres = JSON.parse(localStorage.getItem("selectedGenres")) || [];
+
+const songs = [JSON.parse(localStorage.getItem("video"))];
+console.log(songs);
+const currsong = songs[0][2];
+const artist = songs[0][1];
+
+$("#song_title").html(currsong);
+$("#artist").html(artist);
+console.log(songs[0][3].id.videoId);
+
+function onYouTubeIframeAPIReady() {
+
+  player = new YT.Player('player', {
+    height: '390',
+    width: '640',
+    videoId: songs[0][3].id.videoId,
+    playerVars: {
+      'playsinline': 1
     },
-    {
-      title: "Song 2",
-      artist: "Artist 2",
-      genre: "rock",
-      url: "song2.mp3"
-    },
-    {
-      title: "Song 3",
-      artist: "Artist 3",
-      genre: "hip-hop",
-      url: "song3.mp3"
-    },
-    {
-      title: "Song 4",
-      artist: "Artist 4",
-      genre: "country",
-      url: "song4.mp3"
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
     }
-  ];*/
+  });
+};
 
-  const selectedGenres = JSON.parse(localStorage.getItem("selectedGenres")) || [];
+ // 4. The API will call this function when the video player is ready.
+ function onPlayerReady(event) {
+   event.target.playVideo();
+ }
 
-  if (selectedGenres.length > 0) {
-    
-    const songs = [localStorage.getItem("video")];
-    displayPlaylist(songs);
-    //const filteredPlaylist = playlist.filter(song => selectedGenres.includes(song.genre));
-    //displayPlaylist(filteredPlaylist);
-  }
+// 5. The API calls this function when the player's state changes.
 
-  function displayPlaylist(playlist) {
-    const playlistDiv = document.getElementById("playlist");
-    playlistDiv.innerHTML = "";
+ function onPlayerStateChange(event){
+ };
 
-    playlist.forEach(song => {
-      const songDiv = document.createElement("div");
-      songDiv.innerHTML = `
-        <h3>${song.title}</h3>
-        <p>${song.artist}</p>
-        <audio class = "controls">
-          <source src="${song}" type="audio/mpeg">
-        </audio>
-      `;
-      playlistDiv.appendChild(songDiv);
-    });
-    /*var play_song =$("<iframe>");
-    play_song.attr({
-      width:"560",
-      height:"315",
-      src:"https://www.youtube.com/embed/AEYN5w4T_aM",
-      title:"YouTube video player",
-      frameborder:"0",
-      allow:"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
-    }) //allowfullscreen */
-   //playlist.appendChild(play_song);
 
-  }
 
-// Timer disolay
+// Timer display
 const timerValue = JSON.parse(localStorage.getItem("timerValue"));
 let timeLeft = timerValue.minutes * 60 + timerValue.seconds;
 const countdown = document.getElementById("countdown");

@@ -13,8 +13,12 @@
 			<div id="timer">
 				<div id="countdown"></div>
 			</div>
-			<div id="playlist"></div>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/AEYN5w4T_aM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			<h3 id ="song_title"></h3>
+			<p id = "artist"></p>
+			<div id = "player"></div>
+			<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/AEYN5w4T_aM?" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			-->
+				<audio class = "controls" type="audio/mpeg"></audio>
 			<a href="index.html">Select Music Genres</a>
 		</form>
 	</main>
@@ -22,7 +26,10 @@
         <h1>Developed By</h1>
         <h2>Alan Lee and Xue Yang</h2>
     </footer>
+	<script src = "./assets/cacheclear.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 	<script src="./lib/anime.min.js"></script>
+	<script src = "https://www.youtube.com/iframe_api"></script>
     <script src="./assets/script.js"></script>
 </body>
 </html>
