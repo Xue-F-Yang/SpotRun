@@ -34,8 +34,11 @@ function onPlayerReady(event) {
 // 5. The API calls this function when the player's state changes.
 
 function onPlayerStateChange(event){
-  current++;
-  resetvid(current);
+  if (event.data == YT.PlayerState.done){ // only register this if the video is done, we can then move forward.
+    current++;
+    console.log("changing");
+    resetvid(current);
+  }
 };
 
 // Timer display
