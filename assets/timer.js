@@ -1,6 +1,6 @@
 // Timer display
 
-setTimeout(() => { 
+async function createtimer(){
     const timerValue = localStorage.getItem("timerValue");
     let timeLeft = timerValue * 60; // Converts to seconds
     const countdown = document.getElementById("countdown");
@@ -15,7 +15,6 @@ setTimeout(() => {
         timeLeft--;
     }, 1000);
     
-    // Whenever you want to animate something, it begins like this
-    
 
-}, 2000);
+};
+
