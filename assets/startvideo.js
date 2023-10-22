@@ -1,16 +1,16 @@
 //const selectedGenres = JSON.parse(localStorage.getItem("selectedGenres")) || [];
-const songs = JSON.parse(localStorage.getItem("video"));
-console.log(songs);
-const max_current = songs.length; //We can't go higher than this
 var current = 0;
+const songs = JSON.parse(localStorage.getItem("video"));
 
+setTimeout(() => {  // We need time for the youtube.api to load
+console.log(songs);
 var currsong = songs[current].song;
 var artist = songs[current].artist;
   
 $("#song_title").html(currsong);
 $("#artist").html(artist);
 
-function onYouTubeIframeAPIReady() {
+function onYouTubeIframeAPIReady(current) {
     player = new YT.Player('player', {
       height: '390',
       width: '640',
@@ -41,23 +41,5 @@ function onPlayerStateChange(event){
   }
 };
 
-// Timer display
-const timerValue = localStorage.getItem("timerValue");
-let timeLeft = timerValue * 60; // Converts to seconds
-const countdown = document.getElementById("countdown");
-const timer = setInterval(() => {
-    const minutes = Math.floor(timeLeft / 60);
-    const seconds = timeLeft % 60;
-    countdown.innerHTML = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-    if (timeLeft <= 0) {
-        clearInterval(timer);
-        countdown.innerHTML = "Time's up!";
-    }
-    timeLeft--;
-}, 1000);
-
-// Whenever you want to animate something, it begins like this
-
-anime({
-
-}); 
+onYouTubeIframeAPIReady(current);
+},1000);
