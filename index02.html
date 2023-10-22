@@ -19,6 +19,10 @@
 			<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/AEYN5w4T_aM?" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 			-->
 				<audio class = "controls" type="audio/mpeg"></audio>
+			<div id = "skip_box">
+			<button class ="button" id ="reverse" onclick ="rewind()">Rewind</button>
+			<button class = "button" id = "forward" onclick = "skip()">Skip</button>
+			</div>
 			<a href="index.html">Select Music Genres</a>
 		</form>
 	</main>
@@ -30,6 +34,7 @@
 	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 	<script src="./lib/anime.min.js"></script>
 	<script src = "https://www.youtube.com/iframe_api"></script>
-    <script src="./assets/script.js"></script>
+    <script src="./assets/startvideo.js"></script>
+	<script src = "./assets/videoplay.js"></script>
 </body>
 </html>

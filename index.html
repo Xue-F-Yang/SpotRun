@@ -9,23 +9,36 @@
 		<h1>SpotRun</h1>
 	</header>
 	<main>
-		<form>
-			<label for="distance">Distance (in miles):</label>
-			<input type="number" id="distance" name="distance" min="0" step="0.1"><br><br>
-			<div id="timer">
-				<label for="minutes">Minutes:</label>
+		<form class = "container" id = "setup">
+			<div id = "run_stats"> 
+				<label for="distance">Run Distance (in Miles):</label>
+				<input type="number" id="distance" name="distance" min="0" step="0.1"><br><br>
+			</div>
+			
+			<div class = "card" id="timer">
+				<label for="minutes"> Run Duration (in Minutes):</label>
 				<input type="number" id="minutes" name="minutes" min="0" step="1">
-				<label for="seconds">Seconds:</label>
-				<input type="number" id="seconds" name="seconds" min="0" max="59" step="1">
 				<div id="countdown"></div>
 			</div>
-			<label for="genre">Music Genre:</label>
-			<select id="genre" name="genre" multiple>
-				<option value="pop">Pop</option>
-				<option value="rock">Rock</option>
-				<option value="hip-hop">Hip Hop</option>
-				<option value="country">Country</option>
-			</select>
+
+			<div class = "card" id = "height">
+				<h3>Your Height in:</h3>
+				<label for = "height_ft">Feet</label>
+				<input type ="number" id = "height_ft" name = "height_ft" min = "2" max = "7" step ="1">
+				<label for = "height_in">Inches</label>
+				<input type ="number" id = "height_in" name = "height_in" min = "0" max = "12" step = "1">
+			</div>
+
+			<div class = "card" id = "music_list">
+				<label for="genre">Music Genre:</label>
+				<select id="genre" name="genre" multiple>
+					<option value="pop">Pop</option>
+					<option value="rock">Rock</option>
+					<option value="hip-hop">Hip Hop</option>
+					<option value="country">Country</option>
+				</select>
+			</div>
+
 			<button type="button" onclick="authenticate().then((loadClient()))">Login</button>
 			<button type="button" onclick="execute()">Submit</button>
 		</form>
@@ -35,6 +48,7 @@
         <h2>Alan Lee and Xue Yang</h2>
     </footer>
 	<script src="https://apis.google.com/js/api.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 	<script src = "./assets/authenticate.js"></script> 
 	<script src = "./assets/bpmgetter.js"></script> 
 </body>
