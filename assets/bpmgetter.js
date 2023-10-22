@@ -1,5 +1,6 @@
 
-    
+ localStorage.clear();
+ sessionStorage.clear();   
 
 var YOUR_API_KEY = "AIzaSyC-UVwBspPl6ktlIdWNEEk7M6GIXlBzK5s";
 var YOUR_CLIENT_ID ="646370971911-o9h6v4v1lq3427cetii08pbbfa4fpvqc.apps.googleusercontent.com";
@@ -48,33 +49,20 @@ function getbpm(){
     };
     
 
-function authenticate() {
-return gapi.auth2.getAuthInstance()
-    .signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})
-    .then(function() { console.log("Sign-in successful"); },
-            function(err) { console.error("Error signing in", err); });
-};
-
-function loadClient() {
-gapi.client.setApiKey(YOUR_API_KEY);
-return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
-    .then(function() { console.log("GAPI client loaded for API"); },
-            function(err) { console.error("Error loading GAPI client for API", err); });
-};
-// Make sure the client is loaded and sign-in is complete before calling this method.;
 
 
 function execute() {
 console.log("executing");
 var songartist = getbpm();
-var song = songartist[0]
-var artist = songartist[1];
+const song = songartist[0]
+const artist = songartist[1];
 return gapi.client.youtube.search.list({
-    "part": [
-    "snippet"
-    ],
+    "type":["video"],
+    "part": ["snippet"],
     "maxResults": 25,
     "q": artist+" "+song,
+    "videoEmbeddable": ["true"],
+
 })
     .then(function(response) {
             // Handle the results here (response.result has the parsed body).
@@ -83,7 +71,8 @@ return gapi.client.youtube.search.list({
             var youtubeid = response.result.items[0].id.videoId;
             console.log("https://www.youtube.com/watch?v="+youtubeid);
             var video = "https://www.youtube.com/watch?v="+youtubeid;
-            localStorage.setItem("video",video);
+            var runtime = response.result.items[0];
+            localStorage.setItem("video",JSON.stringify([video,artist,song,runtime]));
 
             function startTimer() {
                 const minutes = document.getElementById("minutes").value;
