@@ -34,6 +34,8 @@ function onPlayerReady(event) {
 // 5. The API calls this function when the player's state changes.
 
 function onPlayerStateChange(event){
+  current++;
+  resetvid(current);
 };
 
 // Timer display
