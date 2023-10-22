@@ -10,7 +10,7 @@ var artist = songs[current].artist;
 $("#song_title").html(currsong);
 $("#artist").html(artist);
 
-function onYouTubeIframeAPIReady(current) {
+async function onYouTubeIframeAPIReady(current) {
     player = new YT.Player('player', {
       height: '390',
       width: '640',
