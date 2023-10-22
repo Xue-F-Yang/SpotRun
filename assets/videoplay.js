@@ -7,7 +7,6 @@ function resetvid(current){
 };
 
 function rewind (){
-
     if (current > 0){
         current--;
         resetvid(current);
