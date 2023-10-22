@@ -19,6 +19,9 @@ async function getbpm(){
     var height_in = $("#height_in").val();
     var stride_length = '';
     const genre = $("#genre").val();
+    console.log(genre);
+    console.log(genre[0]); // for some reason genre is an array. I think its because of the drop down?
+    console.log(time);
     const genre_songs = [];
     stride_length = 0.414 * height_ft*12+height_in;
     dist_in = dist*63360; //converts miles into inches
@@ -34,11 +37,15 @@ async function getbpm(){
         }).then(function (data) {
         console.log(data);
         console.log(data.tempo.length)
+        if (genre[0] === "hip-hop"){
+            genre[0] = "hip hop" //Look the .val function wont pick up "hip hop" so we have to convert it.
+        };
         for (var i =0; i<data.tempo.length;i++){
             if (data.tempo[i].artist.genres !== null){ //apparently some music has no genre, gotta skip those
                 for (var j = 0; j<data.tempo[i].artist.genres.length;j++){
-                    if (data.tempo[i].artist.genres[j] === genre){
+                    if (data.tempo[i].artist.genres[j] === genre[0]){
                         genre_songs.push(data.tempo[i]) //This scans through all the songs we selected, and it picks out those of the desired genre
+                        console.log("generating");
                     };
                 }; 
             };
