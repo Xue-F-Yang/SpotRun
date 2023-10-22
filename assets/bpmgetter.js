@@ -18,7 +18,7 @@ async function getbpm(){
     var height_ft = $("#height_ft").val();
     var height_in = $("#height_in").val();
     var stride_length = '';
-    const genre = 'punk';
+    const genre = $("#genre").val();
     const genre_songs = [];
     stride_length = 0.414 * height_ft*12+height_in;
     dist_in = dist*63360; //converts miles into inches
