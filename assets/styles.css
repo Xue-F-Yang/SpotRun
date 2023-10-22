@@ -56,6 +56,7 @@ body {
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    justify-content: center;
   }
   
   /* Style the input fields */
@@ -142,6 +143,12 @@ body {
     font-size: 1rem;
   }
 
+  .card{
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+  }
   /* Media queries for smaller screens */
 @media only screen and (max-width: 768px) {
     header {
