@@ -9,7 +9,8 @@ async function resetvid(current){
     console.log("player reset");
 };
 
-async function rewind (){
+async function rewind (event){
+    event.preventDefault();
     if (current > 0){
         current--;
         console.log(current);
@@ -18,7 +19,8 @@ async function rewind (){
     };
 };
 
-async function skip(){
+async function skip(event){
+    event.preventDefault();
     if (current < max_song){
         current++;
         await resetvid(current);
