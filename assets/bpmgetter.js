@@ -62,7 +62,7 @@ async function getsongs(song_list){
                 "type":["video"],
                 "part": ["snippet"],
                 "maxResults": 25,
-                "q": artist+" "+song,
+                "q": "'"+song+"'"+" "+"'"+artist+"'",//I'm trying to have EXACT searches. You can get funny results otherwise
                 "videoEmbeddable": ["true"],
             
             })
