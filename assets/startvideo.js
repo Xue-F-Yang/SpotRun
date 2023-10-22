@@ -1,16 +1,19 @@
 //const selectedGenres = JSON.parse(localStorage.getItem("selectedGenres")) || [];
 var current = 0;
 const songs = JSON.parse(localStorage.getItem("video"));
-
-setTimeout(() => {  // We need time for the youtube.api to load
+const max_song = 2;
 console.log(songs);
+
+
 var currsong = songs[current].song;
 var artist = songs[current].artist;
-  
 $("#song_title").html(currsong);
 $("#artist").html(artist);
 
-async function onYouTubeIframeAPIReady(current) {
+async function makeyoutube() {
+  async function onYouTubeIframeAPIReady(current) {
+    console.log("Making Player");
+    console.log(songs[current].id);
     player = new YT.Player('player', {
       height: '390',
       width: '640',
@@ -23,23 +26,26 @@ async function onYouTubeIframeAPIReady(current) {
         'onStateChange': onPlayerStateChange
       }
     });
+    console.log("Making Player");
+
   };
 
-  
-  // 4. The API will call this function when the video player is ready.
-function onPlayerReady(event) {
+  function onPlayerReady(event) {
     event.target.playVideo();
-};
-  
-// 5. The API calls this function when the player's state changes.
+    console.log("player start");
+  };
+  // The API calls this function when the player's state changes.
 
-function onPlayerStateChange(event){
-  if (event.data == YT.PlayerState.done){ // only register this if the video is done, we can then move forward.
-    current++;
-    console.log("changing");
-    resetvid(current);
-  }
+  function onPlayerStateChange(event){
+    if (event.data == YT.PlayerState.done){ // only register this if the video is done, we can then move forward.
+      current++;
+      console.log("changing");
+      resetvid(current);
+    }
+  };
+
+  // The API will call this function when the video player is ready.
+  await onYouTubeIframeAPIReady(current);
 };
 
-onYouTubeIframeAPIReady(current);
-},1000);
+makeyoutube();
