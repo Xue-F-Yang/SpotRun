@@ -35,15 +35,15 @@
 				<input type ="number" id = "height_in" name = "height_in" min = "0" max = "12" step = "1">
 			</div>
 
-			<div class="input-field" id="music_list">
-				<select>
-				  <option value="pop">Pop</option>
-				  <option value="rock">Rock</option>
-				  <option value="hip-hop">Hip Hop</option>
-				  <option value="country">Country</option>
+			<div class = "card" id = "music_list">
+				<label for="genre">Music Genre:</label>
+				<select id="genre" name="genre" multiple>
+					<option value="pop">Pop</option>
+					<option value="rock">Rock</option>
+					<option value="hip-hop">Hip Hop</option>
+					<option value="country">Country</option>
 				</select>
-				<label>Music Genre</label>
-			  </div>
+			</div>
 
 			<button type="button" onclick="authenticate().then((loadClient()))">Login</button>
 			<button type="button" onclick="execute()">Submit</button>
