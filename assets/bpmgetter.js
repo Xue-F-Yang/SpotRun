@@ -118,13 +118,13 @@ async function execute() {
         const minutes = document.getElementById("minutes").value;
         const timerValue = minutes;
         localStorage.setItem("timerValue", timerValue);
-        //window.location.href = "index02.html";
+        window.location.href = "index02.html";
     };
 
     startTimer();
     const selectedGenres = Array.from(document.getElementById("genre").selectedOptions, option => option.value);
     localStorage.setItem("selectedGenres", JSON.stringify(selectedGenres));
-    //window.location.href = "index02.html";
+    window.location.href = "index02.html";
         
 };
 
