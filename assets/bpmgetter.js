@@ -27,6 +27,11 @@ async function getbpm(){
     dist_in = dist*63360; //converts miles into inches
     bpm = (Math.round((dist_in/stride_length/time/2)/10))*10; // Round the BPM to the tens spot
     
+    if (bpm <= 40){
+        bpm === 40;
+    } else if(bpm >= 220 ){
+        bpm === 220;
+    };
     
     comp_url = bpm_url+bpm_endpoint+"?"+"api_key="+bpm_api+"&bpm="+bpm+"&"+limit;
     console.log(comp_url);
@@ -40,14 +45,21 @@ async function getbpm(){
         if (genre[0] === "hip-hop"){
             genre[0] = "hip hop" //Look the .val function wont pick up "hip hop" so we have to convert it.
         };
+        console.log(genre);
         for (var i =0; i<data.tempo.length;i++){
             if (data.tempo[i].artist.genres !== null){ //apparently some music has no genre, gotta skip those
+                var ender = false;
                 for (var j = 0; j<data.tempo[i].artist.genres.length;j++){
-                    if (data.tempo[i].artist.genres[j] === genre[0]){
-                        genre_songs.push(data.tempo[i]) //This scans through all the songs we selected, and it picks out those of the desired genre
-                        console.log("generating");
-                    };
-                }; 
+                    for (var k = 0; k < genre.length; k++){
+                        if (data.tempo[i].artist.genres[j] === genre[k]) {
+                            ender = true;
+                        };
+                    }
+                };
+                if (ender){
+                    genre_songs.push(data.tempo[i]) //This scans through all the songs we selected, and it picks out those of the desired genre
+                    console.log("generating");
+                };
             };
         };
 
@@ -106,13 +118,13 @@ async function execute() {
         const minutes = document.getElementById("minutes").value;
         const timerValue = minutes;
         localStorage.setItem("timerValue", timerValue);
-        window.location.href = "index02.html";
+        //window.location.href = "index02.html";
     };
 
     startTimer();
     const selectedGenres = Array.from(document.getElementById("genre").selectedOptions, option => option.value);
     localStorage.setItem("selectedGenres", JSON.stringify(selectedGenres));
-    window.location.href = "index02.html";
+    //window.location.href = "index02.html";
         
 };
 
