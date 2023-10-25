@@ -2,6 +2,9 @@ var YOUR_CLIENT_ID ="646370971911-o9h6v4v1lq3427cetii08pbbfa4fpvqc.apps.googleus
 var YOUR_API_KEY = "AIzaSyC-UVwBspPl6ktlIdWNEEk7M6GIXlBzK5s";
 
 async function authenticate() {
+    $("#preloader_wrapper").css({
+        "display":"flex",
+    });
     console.log("autneticating")
     return gapi.auth2.getAuthInstance()
         //.signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})//
