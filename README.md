@@ -34,7 +34,7 @@ The form is designed to be mobile-friendly and optimized for different screen si
 6. Once the loading circle disappears, your personalized music playlist will be displayed.
 
 # Acknowledgments
-SpotRun was inspired by the need for a simple and effective music player for runners. We would like to thank the developers of the Google API and the YouTube API for making this project possible.
+SpotRun was inspired by the need for a simple and effective music player for runners. We would like to thank the developers of the Google API, the GetSongbpm API, the YouTube API, Day JS, and Materialize for making this project possible.
 
 # Conclusion:
 The SpotRun music selection form is a user-friendly and customizable tool that allows users to create a personalized music playlist that matches their running preferences. The form is optimized for different screen sizes and includes features such as a countdown timer and loading circle to enhance the user experience.
