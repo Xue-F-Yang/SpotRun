@@ -4,7 +4,7 @@ async function page_two_init(){
     await createtimer();
 };
 
-function restart (event){
+function restart(event){
     event.preventDefault()
     window.location.href = "index.html";
 };
