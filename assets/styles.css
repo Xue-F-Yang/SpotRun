@@ -77,13 +77,15 @@ body {
     border: none;
     background-color: #333;
     color: #fff;
-    font-size: 24px;
+    font-size: 4rem;
     text-align: center;
     text-shadow: 1px 1px #000;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     margin-top: 10px;
     margin-bottom: 10px;
+    width: 300px;
+    height: 100px;
   }
   
   button:hover {
@@ -106,7 +108,16 @@ body {
   h1 {
     margin: 0;
   }
-  
+  h3 {
+    font-size: 4rem;
+    margin: 0px;
+  }
+
+  p{
+    margin-top: 25px;
+    font-size: 3rem;
+  }
+
   input[type="number"] {
     width: 6rem;
     padding: 0.5rem;
@@ -119,12 +130,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
   }
   
   #countdown {
-    font-size: 2rem;
-    margin-top: 1rem;
+    font-size: 8rem;
   }
   
   footer {
@@ -148,6 +158,13 @@ body {
     display: flex;
     align-content: center;
     flex-wrap: wrap;
+  }
+
+  #restart{
+    font-size: 2rem;
+    width: 150px;
+    height: 50px;
+
   }
   /* Media queries for smaller screens */
 @media only screen and (max-width: 768px) {
