@@ -76,6 +76,34 @@ button {
     font-size: 1rem;
   }
 
+  #preloader_wrapper {
+    position: fixed;
+    display: none;
+    top: 50%;
+    bottom: 50%;
+    left: 50%;
+    right: 50%;
+  }
+.card{
+  position: relative;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #fff;
+  padding: 30px;
+  border: 10px;
+  transition: -webkit-box-shadow .25s;
+  transition: box-shadow .25s;
+  transition: box-shadow .25s, -webkit-box-shadow .25s;
+  border-radius: 10px;
+  font-size: 1.2em;
+  text-align: center;
+};
+
+.input_box{
+  font-size: 2em;
+  text-align: center;
+}
+
+
   /* Media queries for smaller screens */
 @media only screen and (max-width: 768px) {
     header {

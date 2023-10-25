@@ -16,23 +16,23 @@
 	</header>
 	<main>
 		<form class = "container" id = "setup">
-			<div id = "run_stats"> 
+			<div class = "card" id = "run_stats"> 
 				<label for="distance">Run Distance (in Miles):</label>
-				<input type="number" id="distance" name="distance" min="0" step="0.1"><br><br>
+				<input class = "input_box" type="number" id="distance" name="distance" min="0" step="0.1">
 			</div>
 			
 			<div class = "card" id="timer">
 				<label for="minutes"> Run Duration (in Minutes):</label>
-				<input type="number" id="minutes" name="minutes" min="0" step="1">
+				<input class = "input_box" type="number" id="minutes" name="minutes" min="0" step="1">
 				<div id="countdown"></div>
 			</div>
 
 			<div class = "card" id = "height">
 				<h3>Your Height in:</h3>
 				<label for = "height_ft">Feet</label>
-				<input type ="number" id = "height_ft" name = "height_ft" min = "2" max = "7" step ="1">
+				<input class = "input_box" type ="number" id = "height_ft" name = "height_ft" min = "2" max = "7" step ="1">
 				<label for = "height_in">Inches</label>
-				<input type ="number" id = "height_in" name = "height_in" min = "0" max = "12" step = "1">
+				<input class = "input_box" type ="number" id = "height_in" name = "height_in" min = "0" max = "12" step = "1">
 			</div>
 
 			<div class = "card" id = "music_list">
@@ -46,6 +46,18 @@
 			</div>
 
 			<button type="button" onclick="authenticate().then((loadClient())).then(execute())">Submit</button>
+
+			<div class="preloader-wrapper big active" id = "preloader_wrapper">
+				<div class="spinner-layer spinner-blue-only">
+				  <div class="circle-clipper left">
+					<div class="circle"></div>
+				  </div><div class="gap-patch">
+					<div class="circle"></div>
+				  </div><div class="circle-clipper right">
+					<div class="circle" id = "loading_circle"></div>
+				  </div>
+				</div>
+			  </div>
 		</form>
 	</main>
     <footer>
