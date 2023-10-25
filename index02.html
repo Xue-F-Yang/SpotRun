@@ -13,17 +13,14 @@
 			<div id="timer">
 				<div id="countdown"></div>
 			</div>
+			<div id = "player"></div>
+			<div id = "skip_box">
+				<button class ="button" id ="reverse" onclick ="rewind(event)">Rewind</button>
+				<button class = "button" id = "forward" onclick = "skip(event)">Skip</button>	
+			</div>
 			<h3 id ="song_title"></h3>
 			<p id = "artist"></p>
-			<div id = "player"></div>
-			<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/AEYN5w4T_aM?" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-			-->
-				<audio class = "controls" type="audio/mpeg"></audio>
-			<div id = "skip_box">
-			<button class ="button" id ="reverse" onclick ="rewind(event)">Rewind</button>
-			<button class = "button" id = "forward" onclick = "skip(event)">Skip</button>
-			</div>
-			<a href="index.html">Select Music Genres</a>
+			<button id = "restart" class = "button" onclick = "restart(event)">Restart</a>
 		</form>
 	</main>
     <footer>

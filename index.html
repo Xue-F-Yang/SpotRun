@@ -18,21 +18,21 @@
 		<form class = "container" id = "setup">
 			<div class = "card" id = "run_stats"> 
 				<label for="distance">Run Distance (in Miles):</label>
-				<input class = "input_box" type="number" id="distance" name="distance" min="0" step="0.1">
+				<input class = "input_box" type="number" id="distance" name="distance" min="0" step="0.1" style ="font-size:2em; text-align:center">
 			</div>
 			
 			<div class = "card" id="timer">
 				<label for="minutes"> Run Duration (in Minutes):</label>
-				<input class = "input_box" type="number" id="minutes" name="minutes" min="0" step="1">
+				<input class = "input_box_cust" type="number" id="minutes" name="minutes" min="0" step="1" style ="font-size:2em; text-align:center">
 				<div id="countdown"></div>
 			</div>
 
 			<div class = "card" id = "height">
 				<h3>Your Height in:</h3>
 				<label for = "height_ft">Feet</label>
-				<input class = "input_box" type ="number" id = "height_ft" name = "height_ft" min = "2" max = "7" step ="1">
+				<input class = "input_box" type ="number" id = "height_ft" name = "height_ft" min = "2" max = "7" step ="1" style ="font-size:2em; text-align:center">
 				<label for = "height_in">Inches</label>
-				<input class = "input_box" type ="number" id = "height_in" name = "height_in" min = "0" max = "12" step = "1">
+				<input class = "input_box" type ="number" id = "height_in" name = "height_in" min = "0" max = "12" step = "1" style ="font-size:2em; text-align:center">
 			</div>
 
 			<div class = "card" id = "music_list">
@@ -41,11 +41,11 @@
 					<option value="pop">Pop</option>
 					<option value="rock">Rock</option>
 					<option value="hip-hop">Hip Hop</option>
-					<option value="country">Country</option>
+					<option value="electronic">Electronic</option>
 				</select>
 			</div>
 
-			<button type="button" onclick="authenticate().then((loadClient())).then(execute())">Submit</button>
+			<button class = "button_sub" type="button" onclick="authenticate().then((loadClient())).then(execute())">Submit</button>
 
 			<div class="preloader-wrapper big active" id = "preloader_wrapper">
 				<div class="spinner-layer spinner-blue-only">
